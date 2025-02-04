@@ -6,3 +6,7 @@ https://github.com/app-generator/flask-illustrations-iradesign/tree/master
 
 # the bread and butter, helped me a lot to do this
 https://github.com/testdrivenio/flask-vue-crud
+
+# sick ui kit, has example log-in page
+https://www.creative-tim.com/product/vue-material-kit
+https://github.com/creativetimofficial/vue-material-kit
