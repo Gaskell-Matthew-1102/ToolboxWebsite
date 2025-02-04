@@ -10,7 +10,7 @@
     },
     methods: {
       getMessage() {
-        const path = 'http://localhost:8080/';
+        const path = 'http://localhost:10000/';
         axios.get(path)
           .then((res) => {
             this.msg = res.data;
