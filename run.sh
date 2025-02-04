@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /app/server
-waitress-serve 'flaskr:app' &
+python run.py &
 
 cd /app/client
 npm run dev

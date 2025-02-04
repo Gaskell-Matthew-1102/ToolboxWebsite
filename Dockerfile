@@ -1,22 +1,25 @@
-# Start with Python stable image for the Flask backend
+# Use the official Python stable image as base
 FROM python:stable AS backend
 
-# Set up the backend (Flask)
-WORKDIR /app/server
+# Set up working directory for Flask app
+WORKDIR /app
 
-# Install dependencies for Flask
-COPY server/requirements.txt ./requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Flask, Waitress, and other dependencies for Flask
+COPY server/requirements.txt /app/server/requirements.txt
+RUN pip install --no-cache-dir -r /app/server/requirements.txt
 
-# Set up the frontend (Vue.js)
+# Set environment variable for Flask to point to the run.py file
+ENV FLASK_APP=server.run
+
+# Now set up Node.js for the Vue.js app
 FROM node:lts AS frontend
 
-# Set up Vue.js in the frontend directory
+# Set up the working directory for the Vue.js app
 WORKDIR /app/client
 COPY client/package.json client/package-lock.json ./
 RUN npm install
 
-# Copy the whole project to the container
+# Copy the entire project to the container
 COPY . /app/
 
 # Expose ports for Flask and Vue.js

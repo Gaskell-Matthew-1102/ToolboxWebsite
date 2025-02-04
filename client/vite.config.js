@@ -11,6 +11,7 @@ export default defineConfig({
     vueDevTools(),
   ],
   server: {
+    host: '0.0.0.0',
     port: 10000, // Replace with your desired port
   },
   resolve: {
