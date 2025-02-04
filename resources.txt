@@ -1,5 +1,8 @@
+helpful resources as i was doing this!
+
+# directory structure and flask backend inspiration. we've had bad etiquette regarding this
 https://github.com/app-generator/tutorial-flask?tab=readme-ov-file#flask-project-structure
-https://dev.to/atsu/web-development-with-vite-vue-and-flask-40ep
-https://github.com/based-jace/combining-flask-with-vue
 https://github.com/app-generator/flask-illustrations-iradesign/tree/master
+
+# the bread and butter, helped me a lot to do this
 https://github.com/testdrivenio/flask-vue-crud
