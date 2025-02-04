@@ -34,4 +34,4 @@ COPY --from=backend-build /backend /backend
 EXPOSE 10000
 
 # Start both services (Flask and Nginx) on port 10000
-CMD ["sh", "-c", "flask run --host=0.0.0.0 --port=10000 & nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "python3 backend/run.py & nginx -g 'daemon off;'"]
