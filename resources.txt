@@ -1,0 +1,5 @@
+https://github.com/app-generator/tutorial-flask?tab=readme-ov-file#flask-project-structure
+https://dev.to/atsu/web-development-with-vite-vue-and-flask-40ep
+https://github.com/based-jace/combining-flask-with-vue
+https://github.com/app-generator/flask-illustrations-iradesign/tree/master
+https://github.com/testdrivenio/flask-vue-crud
