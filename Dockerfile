@@ -1,37 +1,30 @@
-# 1. Build Stage for the Vue.js Frontend
-FROM node:lts-alpine AS frontend-build
+# Start with Python stable image for the Flask backend
+FROM python:stable AS backend
 
-WORKDIR /frontend
+# Set up the backend (Flask)
+WORKDIR /app/server
 
-# Install dependencies and build the Vue.js app
-COPY client/package*.json ./
+# Install dependencies for Flask
+COPY server/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set up the frontend (Vue.js)
+FROM node:lts AS frontend
+
+# Set up Vue.js in the frontend directory
+WORKDIR /app/client
+COPY client/package.json client/package-lock.json ./
 RUN npm install
 
-COPY client/ .
-RUN npm run build
+# Copy the whole project to the container
+COPY . /app/
 
-# 2. Build Stage for the Flask Backend
-FROM python:alpine AS backend-build
+# Expose ports for Flask and Vue.js
+EXPOSE 8080 10000
 
-WORKDIR /backend
+# Set up a script to run both services concurrently
+COPY run.sh /app/run.sh
+RUN chmod +x /app/run.sh
 
-# Install Python dependencies
-COPY server/requirements.txt ./
-RUN pip install -r requirements.txt
-
-COPY server/ .
-
-# 3. Final Stage: Serve the Vue.js and Flask App
-FROM nginx:alpine
-
-# Set up Nginx to serve the Vue.js app
-COPY --from=frontend-build /frontend/dist /usr/share/nginx/html
-
-# Copy the Flask backend to the container
-COPY --from=backend-build /backend /backend
-
-# Expose port 10000
-EXPOSE 10000
-
-# Start both services (Flask and Nginx) on port 10000
-CMD ["sh", "-c", "python3 backend/run.py & nginx -g 'daemon off;'"]
+# Command to run both Flask and Vue.js
+CMD ["/app/run.sh"]
