@@ -22,6 +22,10 @@ COPY client/ /frontend/
 # Install Vue.js dependencies
 RUN npm install
 
+# reimport stuff bc idgaf
+WORKDIR /backend
+COPY server/ /backend/
+
 # Expose ports for Flask and Vue.js
 EXPOSE 8080 10000
 
