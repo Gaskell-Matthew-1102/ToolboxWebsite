@@ -1,3 +1,6 @@
+# Expose ports for Flask and Vue.js
+EXPOSE 8080 10000
+
 # Use the official Python stable image as base
 FROM python:stable AS backend
 
@@ -7,6 +10,7 @@ WORKDIR /backend
 # Install Flask, Waitress, and other dependencies for Flask. and run it
 COPY server/ /backend/
 RUN pip install --no-cache-dir -r /backend/requirements.txt
+CMD ["python3", "/backend/run.py"]
 
 # Now set up Node.js for the Vue.js app
 FROM node:lts AS frontend
@@ -16,8 +20,5 @@ WORKDIR /frontend
 COPY client/ /frontend/
 RUN npm install
 
-# Expose ports for Flask and Vue.js
-EXPOSE 8080 10000
-
 # Command to run both Flask and Vue.js
-CMD ["python3 /backend/run.py && cd /frontend && npm run dev"]
+CMD ["npm", "run", "dev"]
