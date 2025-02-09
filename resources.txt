@@ -1,8 +1,8 @@
 helpful resources as i was doing this!
 
 # directory structure and flask backend inspiration. we've had bad etiquette regarding this
-https://github.com/app-generator/tutorial-flask?tab=readme-ov-file#flask-project-structure
-https://github.com/app-generator/flask-illustrations-iradesign/tree/master
+https://github.com/app-generator/tutorial-flask
+https://github.com/app-generator/flask-illustrations-iradesign
 
 # the bread and butter, helped me a lot to do this
 https://github.com/testdrivenio/flask-vue-crud
@@ -10,3 +10,6 @@ https://github.com/testdrivenio/flask-vue-crud
 # sick ui kit, has example log-in page
 https://www.creative-tim.com/product/vue-material-kit
 https://github.com/creativetimofficial/vue-material-kit
+
+# flask+vue
+https://medium.com/@karthikreddy17/building-a-secure-login-system-with-flask-and-vue-js-a-step-by-step-guide-5cc1e4fd7a15
