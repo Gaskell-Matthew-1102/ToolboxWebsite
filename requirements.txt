@@ -1,0 +1,10 @@
+# Flask components
+flask
+
+# for Auth0
+python-dotenv
+authlib
+requests
+
+# WSGI server for production-ready deployment
+waitress
