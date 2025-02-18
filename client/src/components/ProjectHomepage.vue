@@ -32,6 +32,7 @@
   <div class="container">
     <p>Homepage</p>
       <button type="button" class="btn btn-primary">{{ msg }}</button>
+      <router-link to="/fileupload">File Upload</router-link>
   </div>
 </template>
 
